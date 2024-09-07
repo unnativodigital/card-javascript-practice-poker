@@ -1,4 +1,3 @@
-//Agregar evento al cargar la página
 window.onload = () => {
   generarCartaAleatoria();
 };
@@ -13,63 +12,58 @@ boton_cargar_carta.addEventListener('click', () => {
   generarCartaAleatoria();
 });
 
-let card_arr =  [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13];
+let card_arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13];
 
-function generarNumeroAleatorio () {
-  // funcion que retorna un numero aleatorio.
-  let card_numberValue = Math.floor(Math.random() * card_arr.length);
-  if (card_numberValue <= card_arr.length && card_numberValue>= 0) {
-  if (card_arr[card_numberValue] == 1 ) {
-    card_numberValue = 'A'
-    return  respuesta = card_arr[card_numberValue] 
-  } else if (card_arr[card_numberValue] == 11 ) {
-    card_numberValue = 'J'
-    return  respuesta = card_arr[card_numberValue]
-  } else if (card_arr[card_numberValue] == 12 ) {
-    card_numberValue = 'Q'
-    return  respuesta = card_arr[card_numberValue] 
-  } else if (card_arr[card_numberValue] == 13 ) {
-    card_numberValue = 'k'
-    return  respuesta = card_arr[card_numberValue] 
-  } else
-  return  respuesta = card_arr[card_numberValue] 
-}};
+function generarNumeroAleatorio() {
+  let card_numberValue = card_arr[Math.floor(Math.random() * card_arr.length)];
+  
+  if (card_numberValue === 1) {
+    return 'A';  
+  } else if (card_numberValue === 11) {
+    return 'J';  
+  } else if (card_numberValue === 12) {
+    return 'Q';  
+  } else if (card_numberValue === 13) {
+    return 'K'; 
+  } else {
+    return card_numberValue.toString(); 
+  }
+}
 
+function generarPintaAleatoria() {
+  let num_aleatorio_pinta = Math.floor(Math.random() * 4) + 1;
+  let pinta; 
+
+  switch (num_aleatorio_pinta) {
+    case 1:
+      pinta = 'heart';
+      numberColor.style.color = "red";
+      break;
+    case 2:
+      pinta = 'diamond';
+      numberColor.style.color = "red";
+      break;
+    case 3:
+      pinta = 'spade';
+      numberColor.style.color = "black";
+      break;
+    case 4:
+      pinta = 'club';
+      numberColor.style.color = "black";
+      break;
+    default:
+      pinta = 'unknown';
+      break;
+  }
+
+  return pinta;
+}
 
 function generarCartaAleatoria() {
-  //alert('Generando carta...');
   card_head.className = '';
   card_footer.className = '';
   let pinta = generarPintaAleatoria();
   numberSelection.textContent = generarNumeroAleatorio();
   card_head.className = pinta;
   card_footer.className = pinta + ' inverse';
-
-  function generarPintaAleatoria() {
-    let num_aleatorio_pinta = Math.floor(Math.random() * 4)+1 ;
-    let pinta; 
-  
-    switch (num_aleatorio_pinta) {
-      case 1:
-        pinta = 'heart';
-        numberColor.style.color="red";
-        break;
-      case 2:
-        pinta = 'diamond';
-        numberColor.style.color="red";
-        break;
-      case 3:
-        pinta = 'spade';
-        numberColor.style.color="black";
-        break;
-      case 4:
-        pinta = 'club';
-        numberColor.style.color="black";
-        break;
-      default:
-        pinta = 'unknown';
-        break;
-    }
-    
-    return pinta;
-  }};
+}
