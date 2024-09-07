@@ -19,6 +19,19 @@ function generarNumeroAleatorio () {
   // funcion que retorna un numero aleatorio.
   let card_numberValue = Math.floor(Math.random() * card_arr.length);
   if (card_numberValue <= card_arr.length && card_numberValue>= 0) {
+  if (card_arr[card_numberValue] == 1 ) {
+    card_numberValue = 'A'
+    return  respuesta = card_arr[card_numberValue] 
+  } else if (card_arr[card_numberValue] == 11 ) {
+    card_numberValue = 'J'
+    return  respuesta = card_arr[card_numberValue]
+  } else if (card_arr[card_numberValue] == 12 ) {
+    card_numberValue = 'Q'
+    return  respuesta = card_arr[card_numberValue] 
+  } else if (card_arr[card_numberValue] == 13 ) {
+    card_numberValue = 'k'
+    return  respuesta = card_arr[card_numberValue] 
+  } else
   return  respuesta = card_arr[card_numberValue] 
 }};
 
